@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0uwbtquxuumx"]
+
+[ext_resource type="Script" uid="uid://bifdjx1x3y7vo" path="res://scripts/emeny.gd" id="1_iolue"]
+
+[node name="Emeny" type="CharacterBody2D"]
+script = ExtResource("1_iolue")
