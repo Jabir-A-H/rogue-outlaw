@@ -23,6 +23,16 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
 
+[global_group]
+
+player=""
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="props"
+2d_physics/layer_3="emenies"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

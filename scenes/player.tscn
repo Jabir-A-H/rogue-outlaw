@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://w7u4f3xyig1r"]
+[gd_scene load_steps=20 format=3 uid="uid://w7u4f3xyig1r"]
 
 [ext_resource type="Script" uid="uid://j0e6hipfmq6b" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://6ow0lgcaoo0" path="res://assets/Player/idle/cowboy_idle_spritesheet.png" id="2_dqkch"]
@@ -107,32 +107,43 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(16, 15)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlg0r"]
 radius = 4.0
-height = 13.0
+height = 14.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 7
 script = ExtResource("1_3vyb7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_4r5pv")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.422641
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_dqkch")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dqkch")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="WeaponAim" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D" type="Sprite2D" parent="WeaponAim"]
 
-[node name="Marker2D" type="Marker2D" parent="Node2D"]
+[node name="AimPoint" type="Marker2D" parent="WeaponAim"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 0.23)
+shape = SubResource("CapsuleShape2D_qlg0r")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_bottom = 180
+position_smoothing_enabled = true
