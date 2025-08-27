@@ -10,6 +10,6 @@ Rogue Outlaw is a fast-paced, top-down Wild West roguelike inspired by Sword Rog
 * Procedurally spawned enemies
 * Simple, minimalistic Wild West aesthetic
 
----
+### Suggest some game plan in [GitHub Issues](https://github.com/Jabir-A-H/rogue-outlaw/issues)
 
 *The End*
